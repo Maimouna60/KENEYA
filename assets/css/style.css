@@ -1,0 +1,183 @@
+* {
+    transition-duration: 0.6s;
+}
+#navbarNav a {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 17px;
+    color : #178ccb
+}
+
+button .navbar-toggler-icon {
+    color: #178ccb;
+}
+ 
+.a >.nav-item.active>.nav-link {
+   background-color: rgba(146, 23, 23, 0.1)
+}
+h1.title{
+    color: #178ccb;
+    margin-left:40px;
+}
+.banniere {
+    width: 100%;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+.mask p {
+    font-size: 50px;
+    font-weight: italic;
+    margin-top: 300px;
+}
+
+@media (max-width: 640px) {
+    .mask p {
+        font-size: 20px;
+        font-weight: italic;
+        margin-top: 30px
+    }
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+    .mask p {
+        font-size: 35px;
+        font-weight: italic;
+        margin-top:80px;
+    }
+}
+
+/*-------------------------------------------------------- Accueil-*/
+.talk-about-us>div a {
+    margin: 8px;
+    text-indent: -999px;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-left: 20px;
+   
+    width: 66px;
+    height: 48px;
+    min-width: 50px;
+}
+::-webkit-scrollbar {
+    width: 20px;
+    color: #178ccb;
+}
+.Solution figcaption{
+    text-align: center;
+    color: black;
+}
+
+   /* Track */
+   ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #178ccb;
+    border-radius: 10px;
+  }
+  
+
+#professionnelle.container-fluid{
+    padding: 0;
+}
+body, html {
+    height: 100%;
+  }
+
+  #myCarousel{
+    transition-duration: 0.6s;
+}
+/*-------------------------------------------------------- FOOTER-*/
+footer{
+    background-color:#f8f9fa
+   
+}
+.container-fluid{
+    padding:0;
+}
+ul{
+    margin: 0;
+}
+.page-footer a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.a{
+    color: black;
+}
+.fa-facebook {
+    color: #777777;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+ .fa-twitter {
+    color: #777777;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+
+.fa-google {
+    color: #777777;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+.fa-linkedin {
+    color: #777777;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+.fa-instagram {
+    color: #777777;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+.h6 {
+    color: black;
+    font-size: medium;
+    text-decoration: none;
+    background-color: transparent;
+}
+.h2 {
+    font-style: italic;
+    color: rgb(0, 47, 255)
+}
+/*-------------------------------------------------------- Formulaire-*/
+/*-------------------------------------------------------- Mot de passe oublier form-*/
+.errorForm {
+    color: rgb(150, 28, 28);
+    font-size: 14px;
+    margin-left: 10px;
+}
+.formOk {
+    color: rgb(93, 187, 39);
+    font-size: 14px;
+    margin-left: 10px;
+}
+#article{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#press{
+    margin-right: 20px;
+    margin-left: 20px;
+}
