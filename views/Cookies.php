@@ -1,4 +1,7 @@
-Cookies
+<?php 
+session_start();
+include_once 'header.php'; 
+?>
 <h2 class="grey-text mb-1"><strong>Qu’est-ce qu’un cookie ?</strong></h2>
 <p>Quand l’Utilisateur entre dans un Service, ce dernier envoie automatiquement un cookie à son ordinateur. Il s’agit de petits dossiers contenant du texte, qui permettent à un serveur de reconnaître un ordinateur et donc de savoir si l’ordinateur (et probablement l’Utilisateur) a déjà visité le Service précédemment. 
 Si l’ordinateur se reconnecte au Service, ce dernier cherchera et se servira de ces cookies, ou “témoins” laissés sur le disque dur pendant la précédente visite.</p>

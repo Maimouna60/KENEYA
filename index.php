@@ -1,4 +1,10 @@
-<?php include 'views/header.php'; ?> 
+<?php
+session_start();
+$title = 'KENEYA';
+$link0 = 'index.php';
+include 'controllers/indexController.php';
+include_once 'views/header.php'
+?> 
   <div class="containeur-fluid">
       <div class="row m-0 col-12 p-0 view">
         <img class="banniere" alt="banniere" title="banniere" src="../assets/img/carte2.jpg" />
@@ -34,7 +40,7 @@
     </div>
   </div>
   </section>
-  <section class="container-fluid" id="accueil">
+  <section class="container-fluid p-0" id="accueil">
     <h2 class="text-center text-primary m-5">Ce que l ' on fait pour vous?</h2>
       <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel">
         <div class="carousel-inner">
@@ -66,7 +72,7 @@
   <li><i class="fa fa-user-md mr-3 mt-2 fa-2x" aria-hidden="true"></i></li>
   <li><i class="fa fa-ambulance mr-3 mt-2 fa-2x" aria-hidden="true"></i></li>
 </ul>
-<h2 class="text-center h4 py-3 px-3 mb-0">Découvrer les avantages que peuvent vous apporter l'utilisation de l' application "KENEYA"</h2>
+<h2 class="text-center h4 py-3 px-3 mb-0">Découvrer les avantages que peuvent vous apporter l'utilisation de l'application "KENEYA"</h2>
 </div>
 <hr class="mt-1 mb-0 ">
 <!-- Accordion card -->

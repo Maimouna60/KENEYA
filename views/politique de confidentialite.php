@@ -1,4 +1,7 @@
-<?php  include 'header.php';?>
+<?php 
+session_start();
+ include_once 'header.php';
+ ?>
 <div class="container margin_60">
 
 			<div class="row">

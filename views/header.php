@@ -1,14 +1,9 @@
 <?php
 $regexpName = '/^[a-zA-ZÀ-ÖØ-öø-ÿ\'\ \-\_]+$/';
-$regexpPhone = '/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/';
+$regexpPhone = '/^(((00)|\+) 223)( [0-9]{2}){4}$/';
 $regexpDate = '/^(19((0[4|8])|([1|3|5|7|9][2|6])|([2|4|6|8][0|4|8]))[ \-\/]02[ \-\/]((0[1-9])|([1|2][0-9])))|((20((0[0|4|8])|(1[2|6])|20))[ \-\/]02[ \-\/]((0[1-9])|([1|2][0-9])))|((19[0-9][0-9])|(20([0-1][0-9])|20))[ \-\/]((((0[4|6|9])|11)[ \-\/]((0[1-9])|([1|2][0-9])|30))|(((0[1|3|5|7|8])|1([0|2]))[ \-\/]((0[1-9])|([1|2][0-9])|3([0-1]))))$/';
 $regexpPwd =  '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
-
-/**$pageList = array('Accueil' => 'Accueil'
-                ,'Espace-patients' =>'Espace Patients'
-                ,'Espace-praticiens' =>'Espace Praticiens'
-                ,'A-propos-KENEYA' => 'A propos de KENEYA'
-                ,'Moncompte-form' => 'Compte client');*/
+include ($_SERVER['PHP_SELF'] != '/index.php' ? '../' : '') . 'controllers/headerCtrl.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -44,49 +39,52 @@ $regexpPwd =  '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
       <!-- Collapsible content -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Links -->
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item dropdown">  
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false" href="../views/espace-patients.php">Espace Patients</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                       <a class="dropdown-item" href="">Connexion</a>
-                       <a class="dropdown-item" href="">Déconnexion</a>
-                       <a class="dropdown-item" href="#">Inscription</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../views/espace-patients.php">  Espace Patients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../views/espace-praticiens.php">  Espace Praticiens</a>
+                </li>
+                <li class="nav-item">
+                   <!--<a class="nav-link" href="../views/register.php">Inscription</a>-->
+                   <a class="nav-link" href="../views/register.php">Inscription</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../views/a-propos-keneya.php">A propos de KENEYA</a>
+                </li>   
+                <?php if(!isset($_SESSION['profile']['id'])){ //Si l'utilisateur n'est pas connecté ?>
+                    <li class="nav-item ">
+                            <a class="nav-link" href="<?= $_SERVER['PHP_SELF'] != 'index.php' ? '../' : '' ?>views/login.php" ><img src="../assets/img/login2.png" id="icone" alt="icone"></a>
+                    </li>
+                <?php } else {?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="<?= $_SERVER['PHP_SELF'] != 'index.php' ? '../' : '' ?>views/login.php"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?= isset($_SESSION['profile']['mail']) ? 'Bienvenue ' . $_SESSION['profile']['mail']: ''?>
+                    </a>          
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <?php if(isset($_SESSION['profile']['doctorId'])){ ?>
+                            <a class="nav-link text-danger" href="<?= $_SERVER['PHP_SELF'] == '/index.php' ? 'views/' : '' ?>profil-praticien.php">Mon profil</a> 
+                        <?php } else if(isset($_SESSION['profile']['patientId'])) { ?>
+                        <a class="nav-link text-danger" href="<?= $_SERVER['PHP_SELF'] == '/index.php' ? 'views/' : '' ?>profil-patient.php">Mon profil</a> 
+                        <?php } ?>
+                        <a class="nav-link text-danger" href="<?= $_SERVER['PHP_SELF'] != 'index.php' ? '../' : '' ?>index.php?action=disconnect">Déconnexion</a> 
                     </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false" href="../views/espace-patients.php">Espace Praticiens</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                       <a class="dropdown-item" href="">Connexion</a>
-                       <a class="dropdown-item" href="">Déconnexion</a>
-                       <a class="dropdown-item" href="#">Inscription</a>
-                    </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../views/a-propos-keneya.php">A propos de KENEYA</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="../views/form.php"><img src="../assets/img/login.png" id="icone" alt="icone"></a>
-              </li>
-
-              <!-- Dropdown
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false" href="views/form.php"><img src="../assets/img/login.png" id="icone" alt="icone"></a>
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="views/moncompte-form.php">Connexion</a>
-                      <a class="dropdown-item" href="#">Inscription</a>
-                  </div>
-              </li> -->
-          </ul>
-          <!-- Links -->
-      </div>
-      <!-- Collapsible content -->
-   </nav>
-   <!--/.Navbar-->
-   
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+            <!-- Links -->
+               
+       
+    </nav>
+    <?php
+        if(isset($view)){ //Affichage de la vue sélectionnée
+            include 'views/' . $view . '.php';
+        }else{ ?> 
+    <?php }
+?>
  

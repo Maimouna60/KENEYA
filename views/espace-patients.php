@@ -1,12 +1,15 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include_once 'header.php'; 
+?>
 
       <section>
       <h1 class="text-center mt-2 mb-3 text-primary">Espace Patients</h1>
       <div class="containeur-fluid">
         <div class="row m-0 col-12 p-0 view">
-            <img class="banniere" alt="banniere" title="banniere" src="../assets/img/femme enceinte2.jpg" />
+          <img class="banniere" alt="banniere" title="banniere" src="../assets/img/gynecol.png" />
             <div class="mask">
-                <p class="text-primary col-6 offset-1" >Le Numérique au service de la santé, "KENEYA" la médecine connectée</p>
+                <p class="text-white col-6 offset-1" >Le Numérique au service de la santé, "KENEYA" la médecine connectée</p>
             </div>
         </div>
       </div>
@@ -29,12 +32,12 @@
         </div>   
         <div class="mt-3 col-md-4 d-flex align-items-stretch">
           <div class="card">
-             <img class="card-img-top" src="../assets/img/rdvhomme.jpg" id="img" alt="rdvman">
+             <img class="card-img-responsive" src="../assets/img/rdvhomme.jpg" id="img" alt="rdvman">
              <div class="card-body">
                  <h3 class="card-title"><a>Sam KANTE</a></h3>              
                  <p class="card-text" style="font-style: italic;"> "Depuis que j' ai découvert l’application... je ne  m’en passe plus! 
-                 Je peux prendre les rdv de femme et de mes enfants directement via l' application.
-                 J'ai accès au suivi de leurs consultations, je suis rassuré de pouvoir suivre et prendre en charge aussi facilement leurs bilan de santé.
+                 Je peux prendre les rdv de ma femme et de mes enfants directement via l' application.
+                 J'ai accès au suivi de leurs consultations, je suis rassuré de pouvoir suivre et prendre en charge aussi facilement, leurs bilan de santé.
                  La distance n'est plus du tout un frein pour moi."
                 </p>
              </div>
@@ -55,11 +58,11 @@
     </div>
     </div> 
   </section>
-  <div class="container"  id="#myCarousel">
+  <div class="container"  id="myCarousel">
   <h1 class="text-center titreIndex"></h1>
     <div id="carouselExampleControls" class="carousel slide mx-auto mt-5 mb-4"  data-ride="carousel">
         <!-- Indicators -->
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators mb-0">
         <li data-target="#myCarousel" data-slide-to="0" class="active primary-color"></li>
         <li data-target="#myCarousel" data-slide-to="1" class="primary-color"></li>
         <li data-target="#myCarousel" data-slide-to="2" class="primary-color"></li>
@@ -67,35 +70,35 @@
         <div class="carousel-inner">
           <div class="carousel-item active text-center">
           <div class="row">
-            <div class="col-6 col-xs-12 col-sm-6">
+            <div class="img col-12 col-sm-6">
               <img class="d-block img-carousel mx-auto mb-3"  src="../assets/img/Prdv.png" alt="first slide" classe="d-block w-80">
             </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
-              <p><strong>Avec KENEYA la prise de rendez-vous rapide et facile.<br> 
-              Chercher votre médecin, voir son profil, choisir votre créneau,<br> 
+              <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
+              <p><strong>Avec KENEYA la prise de rendez-vous rapide et facile.
+              Chercher votre médecin, voir son profil, choisir votre créneau,
               et prenez rendez-vous en l'espace de quelques clics.</strong></p>
               </div>
             </div>
           </div>
           <div class="carousel-item text-center">
           <div class="row">
-            <div class="col-6 col-xs-12 col-sm-6">
+            <div class="img col-12 col-sm-6">
               <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Ppaiement.png"  alt="Second slide" classe="d-block w-80">
             </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
-              <p><strong>Payez ou faites payer votre consultations<br>
-                en ligne par un proche. </strong></p>
+              <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
+                <p><strong>Payez ou faites payer votre consultations
+                 en ligne par un proche. </strong></p>
               </div>
               </div>
           </div>
           <div class="carousel-item text-center">
             <div class="row">
-              <div class="col-6 col-xs-12 col-sm-6">
+              <div class=" img col-12 col-sm-6">
                 <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Pdossier.png"  alt="Third slide" classe="d-block w-80">
               </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
-                <p><strong>Vous avez acces a l'ensemble de vos compte rendu de consultations,<br>
-                  par le biais de votre carnet de santé electroniques.</strong></p>
+              <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
+                <p><strong>Vous avez acces a l'ensemble de vos compte rendu de consultations,
+               par le biais de votre carnet de santé electroniques.</strong></p>
               </div>
             </div>
           </div>           

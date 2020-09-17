@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include_once 'header.php';
+?>
 <div class="m-4">
     <h1 class="m-2"><strong>Données personnelles</strong></h1>
     <p class= "mt-2">Keneya peut avoir besoin de collecter des données personnelles.<br>

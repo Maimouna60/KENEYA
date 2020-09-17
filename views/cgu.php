@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include_once 'header.php'; ?>
 <div class="m-4">
     <h1 class="m-2"><strong>Générales d’utilisation de nos Services</strong></h1>
     <h2 class="m-2 h4"><strong>Conditions d’utilisation des services KENEYA</strong></h2>

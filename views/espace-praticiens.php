@@ -1,7 +1,11 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include_once 'header.php';
+?>
 <!-- header -->
+
     <section>
-      <h1 class="text-center mt-1 mb-3 text-primary">Espace Praticiens</h1>
+        <h1 class="text-center mt-1 mb-3 text-primary">Espace Praticiens</h1>
       <div class="containeur-fluid">
         <div class="row m-0 col-12 p-0 view">
             <img class="banniere" alt="banniere" title="banniere" src="../assets/img/docteurF.jpg" />
@@ -72,7 +76,7 @@
   <h1 class="text-center titreIndex"></h1>
     <div id="carouselExampleControls" class="carousel slide mx-auto mt-5 mb-4" data-ride="carousel">
         <!-- Indicators -->
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators mb-0">
         <li data-target="#myCarousel" data-slide-to="0" class="active primary-color"></li>
         <li data-target="#myCarousel" data-slide-to="1" class="primary-color"></li>
         <li data-target="#myCarousel" data-slide-to="2" class="primary-color"></li>
@@ -80,10 +84,10 @@
         <div class="carousel-inner">
           <div class="carousel-item active text-center">
           <div class="row ">
-            <div class="col-6 col-xs-12 col-sm-6">
+            <div class="img col-6 col-sm-6">
               <img class="d-block img-carousel mx-auto mb-3"  src="../assets/img/Dagenda.png." alt="first slide" classe="d-block w-80">
             </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
+              <div class="carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
               <p><strong>
                   Votre agenda est gérer avec plus de facilité</strong></p>
               </div>
@@ -91,10 +95,10 @@
           </div>
           <div class="carousel-item text-center">
           <div class="row">
-            <div class="col-6 col-xs-12 col-sm-6">
+            <div class="img col-6  col-sm-6">
               <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Dconfir.png"  alt="Second slide" classe="d-block w-80">
             </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
+              <div class="carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
               <p><strong>Recevez directement les demandes de rendez-vous <br>
                 via votre compte professionnelle</strong></p>
               </div>
@@ -102,10 +106,10 @@
           </div>
           <div class="carousel-item text-center">
             <div class="row">
-              <div class="col-6 col-xs-12 col-sm-6">
+              <div class="img col-6 col-sm-6">
                 <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Drdv.png"  alt="Third slide" classe="d-block w-80">
               </div>  
-              <div class="col-6 col-xs-12 col-sm-6 d-flex flex-wrap align-content-center">
+              <div class="carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
                 <p><strong>Ayez toujours à porter de mains le dossier medical <br>
                   et les pathologies et suivie de votre patient<strong></p>
               </div>
