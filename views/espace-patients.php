@@ -15,7 +15,7 @@ include_once 'header.php';
       </div>
 
       <div class="text-center Testimony">
-      <h2 class="font-style: italic text-info mb-4 mt-4"> Nos Patients témoignent!</h2> 
+      <h2 class="font-style: italic text-info mb-4 mt-4"> <strong>Nos Patients témoignent!</strong></h2> 
           <!-- Container -->
       <div class="container mt-3">
       <div class="row">
@@ -25,8 +25,8 @@ include_once 'header.php';
                <div class="card-body">
                    <h3 class="card-title"><a>Diariatou KEITA</a></h3>              
                    <p class="card-text" style="font-style: italic">"Je me rappelle encore de ma premiere prise de r.d.v... comme si c’était hier.
-                    J’avais une douleur terrible au ventre et j’ai pu avoir un rendez-vous rapidement en ligne"
-                   .</p>
+                    J’avais une terrible douleur au ventre, mais grâce à KENEYA j’ai pu avoir un rendez-vous rapidement en ligne en moins de 2h près de chez moi."
+                   </p>
                </div>
             </div>
         </div>   
@@ -36,8 +36,8 @@ include_once 'header.php';
              <div class="card-body">
                  <h3 class="card-title"><a>Sam KANTE</a></h3>              
                  <p class="card-text" style="font-style: italic;"> "Depuis que j' ai découvert l’application... je ne  m’en passe plus! 
-                 Je peux prendre les rdv de ma femme et de mes enfants directement via l' application.
-                 J'ai accès au suivi de leurs consultations, je suis rassuré de pouvoir suivre et prendre en charge aussi facilement, leurs bilan de santé.
+                 Je peux prendre les rdvs de ma femme et de mes enfants directement via l' application depuis Paris.
+                 J'ai accès au suivi de leurs consultations, je suis rassuré de pouvoir suivre et prendre en charge aussi facilement leurs consultations.
                  La distance n'est plus du tout un frein pour moi."
                 </p>
              </div>
@@ -49,8 +49,9 @@ include_once 'header.php';
            <div class="card-body">
                <h3 class="card-title"><a>Ousmane SOW</a></h3>              
                <p class="card-text" style="font-style: italic;">
-               "J'ai été très satisfait des possibilités offertes par cette application qui vous permet de gagner du temps 
-               et de bénéficier d'une panoplie de services médicaux juste à partir de son smartphone"
+               "J'ai été très satisfait des possibilités offertes par cette application qui me permet de gagner du temps 
+               et de bénéficier d'une panoplie de services médicaux juste à partir de mon smartphone.
+               "
                </p>
            </div>
         </div>
@@ -75,7 +76,7 @@ include_once 'header.php';
             </div>  
               <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
               <p><strong>Avec KENEYA la prise de rendez-vous rapide et facile.
-              Chercher votre médecin, voir son profil, choisir votre créneau,
+              Cherchez votre médecin, voir son profil, choisir votre créneau,
               et prenez rendez-vous en l'espace de quelques clics.</strong></p>
               </div>
             </div>
@@ -86,7 +87,7 @@ include_once 'header.php';
               <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Ppaiement.png"  alt="Second slide" classe="d-block w-80">
             </div>  
               <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
-                <p><strong>Payez ou faites payer votre consultations
+                <p><strong>Payez ou faites payer votre consultation
                  en ligne par un proche. </strong></p>
               </div>
               </div>
@@ -97,20 +98,12 @@ include_once 'header.php';
                 <img class="d-block img-carousel mx-auto mb-3" src="../assets/img/Pdossier.png"  alt="Third slide" classe="d-block w-80">
               </div>  
               <div class=" carouselText col-12 col-sm-6 d-flex flex-wrap align-content-center">
-                <p><strong>Vous avez acces a l'ensemble de vos compte rendu de consultations,
+                <p><strong>Vous avez accès à l'ensemble de vos compte rendu de consultations,
                par le biais de votre carnet de santé electroniques.</strong></p>
               </div>
             </div>
           </div>           
         </div>
-        <!--<a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon primary-color no-padding" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-          <span class="carousel-control-next-icon primary-color" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>-->
       </div>
 </div>
  

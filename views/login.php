@@ -16,7 +16,7 @@ include_once 'header.php';
 
             <div class="row ">
                 <div class=" col-6 mx-auto">
-                <!-- May deleted ?? -->
+            
                 <div id="loginOnly">
                                   
                     <div class="box_form">
@@ -64,6 +64,7 @@ include_once 'header.php';
                             <div class="row">
                                 <div class="col-12">
                                     <h2 class="text-center bold h5">Nouveau sur KENEYA?</h2>
+                                    <!--MAJUSCULE-->
                                     <p class="text-uppercase text-center">
                                         Inscrivez-vous : 
                                     </p>

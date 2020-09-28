@@ -36,7 +36,7 @@ include_once 'header.php';
                         </div>
                         <div class="col-12 col-md-6 col-xl-6">
                             <label for="matricule">N° d'inscription à l'ordre des médecins :</label>
-                            <input id="matricule"  class="form-control <?= !empty($_POST['matricule']) ? (isset($formErrors['matricule']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['matricule']) ? $_POST['matricule'] : '' ?>" type="text" name="matricule" placeholder="bko223KLLMKML"/>
+                            <input id="matricule"  class="form-control <?= !empty($_POST['matricule']) ? (isset($formErrors['matricule']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['matricule']) ? $_POST['matricule'] : '' ?>" type="text" name="matricule" placeholder="refad123"/>
                             <!--message d'erreur-->
                             <p class="errorForm"><?= isset($formErrors['matricule']) ? $formErrors['matricule'] : '' ?></p>
                         </div>
@@ -54,7 +54,7 @@ include_once 'header.php';
                     </div>
                     <div class="col-12 col-md-6 col-xl-6 mb-4">
                         <select class="form-control custom-select" placeholder="spécialité" name="specialitiesName" required>
-                            <option disabled selected >Spécialité</option> 
+                            <option disabled selected >Spécialité :</option> 
                             <?php foreach($specialitiesName as $specialitieName){?>
                             <option value="<?=$specialitieName->id?>" <?= isset($_POST['specialitiesName']) && $_POST['specialitiesName'] == $specialitieName->id ? 'selected' : '' ?>><?=$specialitieName->name?></option>
                             <?php } ?>

@@ -10,7 +10,7 @@ include_once 'header.php';
 <h1 class="text-center text-primary">Modifier vos informations</h1>
 <div class="container-fluid">
     <div class="row"> 
-        <form class="col-12 col-md-6 col-xl-6" id="modifier-profil" action="modifier-patient.php" method="POST">   
+        <form class="col-12 col-md-6 col-xl-6" id="modifier-profil" action="modifier-patient.php<?= isset($_GET['patientId']) ? '?patientId=' . $_GET['patientId'] : '' ?>" method="POST">   
             <div class="card-body card-body-cascade text-center">
                 <div class="card" style="width: auto;">
                         <img class="card-img-top" src="../assets/img/manphone.jpg." alt="Card image cap">
@@ -41,7 +41,7 @@ include_once 'header.php';
                                 <label for="birthdate">Date de naissance:</label>
                                 <input id="birthdate"  class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['birthdate']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['birthdate']) ? $_POST['birthdate'] : $users->birthDate ?>" type="date" name="birthdate"  />
                                 <?php if (isset($formErrors['birthdate'])) { ?>
-                                <p class="errorForm"><?= isset($formErrors['firstname']) ? $formErrors['birthdate'] : '' ?></p>
+                                <p class="errorForm"><?= isset($formErrors['birthdate']) ? $formErrors['birthdate'] : '' ?></p>
                                 <?php } ?>
                             </div>
                         </li>
@@ -63,7 +63,7 @@ include_once 'header.php';
                         </li>
                     </ul>
                     <input type="submit" class="btn btn-primary" name="modify" value="Enregistrer"></input>
-                    <p class="formOk"><?= isset($modifyPatientMessage) ? $modifyPatientMessage : '' ?></p><?php
+                    <p class="formOk text-danger"><?= isset($modifyPatientMessage) ? $modifyPatientMessage : '' ?></p><?php
                     }else { ?>
                     <p><?= $message ?></p>
                     <?php } ?>
@@ -80,14 +80,15 @@ include_once 'header.php';
                         <th scope="col">Heure du RDV :</th>
                     </tr>
                 </thead>
-                <tbody><?php 
-                    foreach($appointmentList as $appointment){ ?>
-                    <tr>
-                        <td><?= $appointment->doctor ?></td>
-                        <td><?= $appointment->dateFr ?></td>
-                        <td><?= $appointment->hour ?></td>
-                    </tr><?php
-                    } ?>
+                <tbody>
+                    <!-- <?php 
+                    // foreach($appointmentList as $appointment){ ?>
+                    // <tr>
+                    //     <td><?= $appointment->doctor ?></td>
+                    //     <td><?= $appointment->dateFr ?></td>
+                    //     <td><?= $appointment->hour ?></td>
+                    // </tr><?php
+                    // } ?> -->
                 </tbody>
             </table>
         </div>   

@@ -30,8 +30,8 @@ include_once 'header.php';
                         <li class="list-group-item"><?= $users->price ?> Fcfa</li>
                     </ul>
                     <div class="card-body rounded-bottom mdb-color lighten-3 ">
-                        <a href="modifier-praticien.php" class="card-link white-text mr-5">Modifier</a>
-                        <a href="profil-praticien.php" class="ml-5 text-danger" data-toggle="modal" data-target="#deleteDoctorModal" data-praticien="<?= $_SESSION['profile']['id'] ?>">Supprimer</a>
+                    <a href="modifier-praticien.php" class="card-link white-text">Modifier</a>
+                    <a href="profil-praticien.php" class="ml-5 text-danger" data-toggle="modal" data-target="#deletePraticienModal" data-praticien="<?= $_SESSION['profile']['id'] ?>">Supprimer</a>
                     </div>
                </div>
             </div>
@@ -68,13 +68,13 @@ include_once 'header.php';
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-footer">
-                                <form action="profil-praticien" method="POST">
-                                    <button type="submit" class="btn btn-danger" id="deldrBtn" name="deleteProfilDoctor">Supprimer</button>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <form action="profil-praticien?id=<?=$_SESSION['profile']['id']?>" method="POST">                            
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Annuler</button>
+                                    <button type="submit" class="btn btn-danger" id="delDoctorBtn" name="deleteProfilDoctor">Supprimer</button>
                                 </form>
                             </div>
                             </div>
                         </div>
                     </div>
 <?php include 'footer.php';
-

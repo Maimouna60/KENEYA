@@ -12,10 +12,10 @@ include_once 'header.php';
 <h1 class="text-center text-primary">Modifier vos informations</h1>
 <div class="container-fluid">
     <div class="row"> 
-        <form class="col-12 col-md-6 col-xl-6" id="modifier-profil" action="modifier-praticien.php" method="POST">   
+        <form class="col-12 col-md-6 col-xl-6" id="modifier-profil" action="modifier-praticien.php<?= isset($_GET['doctorId']) ? '?doctorId=' . $_GET['doctorId'] : '' ?>"  method="POST">   
             <div class="card-body card-body-cascade text-center">
                 <div class="card" style="width: auto;">
-                        <img class="card-img-top" src="../assets/img/dr femme.jpg." alt="Card image cap">
+                        <img class="card-img-top" src="../assets/img/docteurF.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold blue-text pb-2">Votre Fiche</h5>
                             <p class="card-text"></p>
@@ -40,7 +40,7 @@ include_once 'header.php';
                         </li>
                         <li class="list-group-item">
                             <div class="form-group">
-                                <label for="phoneNumbers">Numéros de téléphone :</label>
+                                <label for="phoneNumbers">Numéro de téléphone :</label>
                                 <input id="phoneNumbers" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['phoneNumbers']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['phoneNumbers']) ? $_POST['phoneNumbers'] : $users->phoneNumbers ?>" type="tel" name="phoneNumbers" />
                                 <!--message d'erreur-->
                                 <p class="errorForm"><?= isset($formErrors['phoneNumbers']) ? $formErrors['phoneNumbers'] : '' ?></p>
@@ -48,9 +48,9 @@ include_once 'header.php';
                         </li>
                         <li class="list-group-item">
                             <div class="form-group">
-                                <select class="form-control custom-select" placeholder="spécialité" name="specialitiesName" required>
+                                <select class="form-control custom-select" placeholder="spécialité" name="specialitiesName" required >
                                     <option disabled selected >Spécialité :</option> 
-                                    <?php foreach($specialitiesName as $specialitieName){?>
+                                    <?php foreach($specialitiesName as $specialitieName) { ?>
                                     <option value="<?=$specialitieName->id?>" <?= isset($_POST['specialitiesName']) && $_POST['specialitiesName'] == $specialitieName->id || $users->id_dom20_specialities == $specialitieName->id ? 'selected' : '' ?>><?=$specialitieName->name?></option>
                                     <?php } ?>
                                 </select>
@@ -61,8 +61,7 @@ include_once 'header.php';
                                 <select class="form-control custom-select" placeholder="practicePlace" name="practicePlace" required>
                                     <option disabled selected >Clinique/hopital : </option> 
                                     <?php foreach($practicesPlace as $practicePlace){?>
-                                        <!--ternaire raccourci-->
-                                    <option value="<?=$practicePlace->id?>" <?= isset($_POST['practicePlace']) && $_POST['practicePlace'] == $practicePlace->id || $users->id_dom20_practiceplace == $practicePlace->id ? 'selected' : '' ?> ><?=$practicePlace->placename?></option>
+                                    <option value="<?=$practicePlace->id?>" <?= isset($_POST['practicePlace']) && $_POST['practicePlace'] == $practicePlace->id || $users->id_dom20_practiceplace == $practicePlace->id ? 'selected' : '' ?>><?=$practicePlace->placename?></option>
                                     <?php } ?>
                                 </select>
                                 <small id="practicePlaceHelp" class="form-text text-muted">Merci de renseigner le de votre etablissement</small>
@@ -85,7 +84,7 @@ include_once 'header.php';
                             </div>
                         </li>
                     </ul>
-                    <input type="submit" class="btn btn-primary" name="modifyDoctor" value="Enregistrer"></input>
+                    <input type="submit" class="btn btn-primary" name="modify" value="Enregistrer"></input>
                     <p class="formOk text-danger"><?= isset($modifyDoctorMessage) ? $modifyDoctorMessage : '' ?></p><?php
                     }else { ?>
                     <p><?= $message ?></p>
@@ -103,19 +102,19 @@ include_once 'header.php';
                         <th scope="col">Heure du RDV :</th>
                     </tr>
                 </thead>
-                <tbody><?php 
+                <tbody>
+                    <!-- <?php 
                     foreach($appointmentList as $appointment){ ?>
                     <tr>
                         <td><?= $appointment->doctor ?></td>
                         <td><?= $appointment->dateFr ?></td>
                         <td><?= $appointment->hour ?></td>
-                    </tr><?php
-                    } ?>
+                    </tr>
+                    <?php } ?> -->
                 </tbody>
             </table>
         </div>   
     </div>
 </div>
-
 
 <?php include 'footer.php';

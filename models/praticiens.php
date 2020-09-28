@@ -63,8 +63,14 @@ class doctor {
       return $addDoctorQuery->execute();
     }
   
+    /**
+     * Permet de savoir si un praticien existe.
+     * Il retourne :
+     *  - 0 quand il n'y a pas de praticien
+     *  - 1 quand il y en a un
+     */
   public function checkIdDoctorExist() {
-    //check si l'id du patient existe, retourne 1 si oui, 0 sinon
+    //check si l'id du docteur existe, retourne 1 si oui, 0 sinon
     $checkIdDoctorExistQuery = $this->db->prepare(
         'SELECT 
             COUNT(id) AS isIdDoctorExist
@@ -98,86 +104,141 @@ class doctor {
     $modifyDoctorQuery ->bindvalue(':id_dom20_specialities', $this->id_dom20_specialities, PDO::PARAM_INT);
       return $modifyDoctorQuery ->execute();
 } 
- /*******Recuperation Id user */
-    public function getUserId()
-    {
-        $getUserIdQuery = $this->db->prepare(
-            'SELECT `id`,
-            FROM  `dom20_doctors`
-            WHERE `id` =:id_dom20_users
-        ');
-        $getUserIdQuery ->bindValue('id_dom20_users', $this->id_dom20_users, PDO::PARAM_STR);
-        $getUserIdQuery ->execute();
-        return $getUserIdQuery ->fetch(PDO::FETCH_OBJ);
-    }
 
- 
-    
+  /*********************************Recuperation Id Patient************************************/
+  public function getDoctorIdByUserId()
+  {
+      $getUserIdQuery = $this->db->prepare(
+          'SELECT `id`
+          FROM  `dom20_doctors`
+          WHERE `id_dom20_users` =:id_dom20_users
+      '
+      );
+      $getUserIdQuery->bindValue('id_dom20_users', $this->id_dom20_users, PDO::PARAM_INT);
+      $getUserIdQuery->execute();
+      return $getUserIdQuery->fetch(PDO::FETCH_OBJ);
+  }
+
+  public function getUserIdById()
+  {
+      $getUserIdQuery = $this->db->prepare(
+          'SELECT `id_dom20_users`
+          FROM  `dom20_doctors`
+          WHERE `id` = :id
+      '
+      );
+      $getUserIdQuery->bindValue('id', $this->id, PDO::PARAM_INT);
+      $getUserIdQuery->execute();
+      return $getUserIdQuery->fetch(PDO::FETCH_OBJ);
+  }
   
 /********************************************Recuperation liste de docteur******************************* */
 
-      function getPatientList() {
-        $getPatientList = $this->db->query(
-            //reformate la date sur le format francais
+      function getDoctorList() {
+        $getDoctorList = $this->db->query ( 
             'SELECT 
                 `us`.`lastname`
                 ,`us`.`firstname`
-                ,DATE_FORMAT(`pat`.`birthDate`, \'%d/%m/%Y\') AS `birthDateFr` 
-                ,`pat`.`birthDate`
-                ,`pat`.`phoneNumbers`
-                ,`us`.`mail`
-            FROM 
-                `dom20_users`  as `us`
-            INNER JOIN  
-                    `dom20_patients` AS  `pat`
-            ON `us`.`id` = `pat`.`id_dom20_users`
-            WHERE
-                `us`.`id` = :id        
-            ORDER BY `lastname` ASC
-        ');
-        // fetchAll permet de recuperer un tableau d'objet
-        return $getPatientList->fetchAll(PDO::FETCH_OBJ);
-      }
-
-
-      function getPatientListLimited($limitArray = array() ,$searchArray = array()) {
-      if(count($searchArray) > 0){
-        $where = 'WHERE ';
-        foreach($searchArray as $fieldName => $search) {
-            if (strrchr($search, '%')){
-                $whereArray[] = '`' . $fieldName . '` LIKE :' . $fieldName ;
-            }else {
-                $whereArray[] = '`' . $fieldName . '` = :' . $fieldName ;
-            }
-        }
-        $where .= implode(' AND ', $whereArray);
-      }
-      $getPatientListLimited = $this->db->prepare(
-        'SELECT 
-            `us`.`lastname`
-                ,`us`.`firstname`
-                ,DATE_FORMAT(`pat`.`birthDate`, \'%d/%m/%Y\') AS `birthDateFr` 
-                ,`pat`.`birthDate`
-                ,`pat`.`phoneNumbers`
+                ,`spe`.`name`
                 ,`us`.`mail`
             FROM 
                 `dom20_users`  AS `us`
-              /* ' . (isset($where) ? $where : '') . '*/
-            INNER JOIN  
-                    `dom20_patients` AS  `pat`
-            ON `us`.`id` = `pat`.`id_dom20_users`
-            ORDER BY `lastname` ASC '
-            . (count($limitArray) == 2 ? 'LIMIT :limit OFFSET :offset' : '')
-      );
-      foreach($searchArray as $fieldName => $search) {
-        $getPatientListLimited->bindvalue(':' . $fieldName, $search , PDO::PARAM_STR);
+                INNER JOIN  
+                    `dom20_doctors` AS  `doc`
+                ON 
+                    `us`.`id` = `doc`.`id_dom20_users` 
+                INNER JOIN 
+                    `dom20_specialities` AS `spe` 
+                ON  
+                    `spe`.`id` = `doc`.`id_dom20_specialities`
+            WHERE
+                `us`.`id` = :id    
+            ORDER BY `lastname` ASC
+        ');
+        // fetchAll permet de recuperer un tableau d'objet
+        return $getDoctorList->fetchAll(PDO::FETCH_OBJ);
       }
-      if (count($limitArray) == 2){
-        $getPatientListLimited->bindvalue(':limit', $limitArray['limit'], PDO::PARAM_INT);
-        $getPatientListLimited->bindvalue(':offset', $limitArray['offset'], PDO::PARAM_INT);
-      }
-      $getPatientListLimited->execute();
-      return $getPatientListLimited->fetchAll(PDO::FETCH_OBJ); 
-    }  
 
-}
+
+      function getDoctorListLimited($limitArray = array() ,$searchArray = array()) {
+        if(count($searchArray) > 0){
+          $where = ' WHERE ';
+          foreach($searchArray as $fieldName => $search) {
+            // strrchr — Trouve la dernière occurrence d'un caractère dans une chaîne
+              if (strrchr($search, '%')){
+                  $whereArray[] = '`' . $fieldName . '` LIKE :' . $fieldName ;
+              }else {
+                  $whereArray[] = '`' . $fieldName . '` = :' . $fieldName ;
+              }
+          }
+         // implode — Rassemble les éléments d'un tableau en une chaîne
+          $where .= implode(' AND ', $whereArray); 
+        }
+        $getDoctorListLimited = $this->db->prepare(
+          'SELECT 
+                  `us`.`id`
+                  ,`us`.`id` AS `usid`
+                  ,`us`.`lastname`
+                  ,`us`.`firstname`
+                  ,`spe`.`name`
+                  ,`us`.`mail`
+                  ,`doc`.`id` AS `docId`
+              FROM `dom20_users`  AS `us`              
+                  INNER JOIN `dom20_doctors` AS  `doc`
+                          ON `us`.`id` = `doc`.`id_dom20_users`
+                  INNER JOIN `dom20_specialities` AS `spe` 
+                          ON  `spe`.`id` = `doc`.`id_dom20_specialities` '
+              . (isset($where) ? $where : '') . 
+              ' ORDER BY `lastname` ASC '
+              . (count($limitArray) == 2 ? 'LIMIT :limit OFFSET :offset' : '')
+        );
+        foreach($searchArray as $fieldName => $search) {
+          $getDoctorListLimited->bindvalue(':' . $fieldName, $search , PDO::PARAM_STR);
+        }
+        if (count($limitArray) == 2){
+          $getDoctorListLimited->bindvalue(':limit', $limitArray['limit'], PDO::PARAM_INT);
+          $getDoctorListLimited->bindvalue(':offset', $limitArray['offset'], PDO::PARAM_INT);
+        }
+        $getDoctorListLimited->execute();
+        return $getDoctorListLimited->fetchAll(PDO::FETCH_OBJ); 
+      }  
+      
+
+    /*****************************************methode Récuper les infos du docteur pour l'afficher depuis ma liste  */  
+    public function getDocDetailsById() {
+      $getDocDetailsById = $this->db->prepare(
+      'SELECT 
+                `doc`.`id`
+               ,`us`.`lastname`
+               ,`us`.`firstname`
+               ,`us`.`mail`
+               ,`doc`.`phoneNumbers`
+               ,`doc`.`price`
+               ,`spe`.`name`
+               ,`pla`.`placename`
+               , `doc`.`id_dom20_practiceplace`
+               , `doc`.`id_dom20_specialities`
+               , `doc`.`id_dom20_users`
+            FROM 
+                `dom20_users`  as `us`
+            INNER JOIN  
+                `dom20_doctors` AS  `doc`
+            ON 
+                `us`.`id` = `doc`.`id_dom20_users` 
+            INNER JOIN 
+                `dom20_specialities` AS `spe` 
+            ON  
+                `spe`.`id` = `doc`.`id_dom20_specialities`
+            INNER JOIN
+                `dom20_practiceplace` AS `pla`
+            ON  `pla`.`id` = `doc`. `id_dom20_practiceplace`
+            WHERE
+                `doc`.`id` = :id
+            ');
+       $getDocDetailsById->bindValue(':id', $this->id, PDO::PARAM_INT);
+       $getDocDetailsById->execute();
+       return $getDocDetailsById->fetch(PDO::FETCH_OBJ); 
+    }
+          
+}   
+

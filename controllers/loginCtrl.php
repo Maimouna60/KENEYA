@@ -30,11 +30,13 @@ if(isset($_POST['login'])){
             //On met en session ses informations
             $_SESSION['profile']['id'] = $getUserProfile->id;
             $_SESSION['profile']['mail'] = $getUserProfile->mail;
+            $_SESSION['profile']['role'] = $getUserProfile->role;
 
             $doctor = new doctor();
             $doctor->id_dom20_users = $getUserProfile->id;
             if($doctor->checkUserUnavailabilityByFieldName('id_dom20_users')){
-                $_SESSION['profile']['doctorId'] = 22;
+                $doctorID = $doctor->getDoctorIdByUserId()->id;
+                $_SESSION['profile']['doctorId'] = $doctorID;
                 //On redirige vers une autre page.
                 header('Location: profil-praticien.php');
                 exit;
@@ -43,13 +45,13 @@ if(isset($_POST['login'])){
             $patient = new patients();
             $patient->id_dom20_users = $getUserProfile->id;
             if($patient->checkUserUnavailabilityByFieldName('id_dom20_users')){
-                $_SESSION['profile']['patientId'] = 22;
+                $patientID = $patient->getPatientIdByUserId()->id;
+                $_SESSION['profile']['patientId'] = $patientID;
                        //On redirige vers une autre page.
                        header('Location: profil-patient.php');
                        exit;
             }
 
-         
 
 
        }else{

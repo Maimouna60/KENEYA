@@ -36,12 +36,8 @@ include_once 'views/header.php'
     </div>
   </div>
   </section>
- 
-    </div>
-  </div>
-  </section>
   <section class="container-fluid p-0" id="accueil">
-    <h2 class="text-center text-primary m-5">Ce que l ' on fait pour vous?</h2>
+    <h2 class="text-center text-primary m-5"> <strong> Que fait on pour vous?</h2>
       <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -65,14 +61,14 @@ include_once 'views/header.php'
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-        </div>
-      
+      </div>
+<hr class="mb-1 mt-0 ">    
 <div class="accordion md-accordion accordion-3 z-depth-1-half" style="background-color: #3e90ee; color:white;"    id="accordionEx194" role="tablist" aria-multiselectable="true">
 <ul class="list-unstyled d-flex justify-content-center">
   <li><i class="fa fa-user-md mr-3 mt-2 fa-2x" aria-hidden="true"></i></li>
   <li><i class="fa fa-ambulance mr-3 mt-2 fa-2x" aria-hidden="true"></i></li>
 </ul>
-<h2 class="text-center h4 py-3 px-3 mb-0">Découvrer les avantages que peuvent vous apporter l'utilisation de l'application "KENEYA"</h2>
+<h2 class="text-center h4 py-3 px-3 mb-0">Découvrez les avantages que peuvent vous apporter l'utilisation de l'application "KENEYA"</h2>
 </div>
 <hr class="mt-1 mb-0 ">
 <!-- Accordion card -->
@@ -92,7 +88,7 @@ include_once 'views/header.php'
   <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4"
     data-parent="#accordionEx194">
     <div class="card-body pt-0">
-      <h4 class="mb-0 mt-3 h5">Soyez toujours informé afin d'utiliser de facon optimale votre temps de travail grace à : </h4>
+      <h4 class="mb-0 mt-3 h5">Soyez toujours informé afin d'utiliser de façon optimale votre temps de travail grace à : </h4>
       <ul>
         <li>Rappel par SMS de vos rdvs</li>
         <li>Rappel par mail de vos rdvs</li>
@@ -122,7 +118,7 @@ include_once 'views/header.php'
   <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6"
     data-parent="#accordionEx194">
     <div class="card-body pt-0">
-      <h4 class="mb-0 mt-3 h5"> Les professionnelles peuvent ainsi partagee les documents importants avec leurs patients tels que :</h4>
+      <h4 class="mb-0 mt-3 h5"> Les professionnels peuvent ainsi partager les documents importants avec leurs patients tels que :</h4>
       <ul>
         <li>Radiographies</li>
         <li>Ordonnances</li>
@@ -149,7 +145,7 @@ include_once 'views/header.php'
     <div class="card-body pt-0">
       <h4 class="mb-0 mt-3 h5">Vos patients ont besoin de voir un spécialiste ou de faire une radio ? Vous pouvez prendre directement son rendez-vous via KENEYA :</h4>
         <ul>
-          <li> Accédez aux disponibilités de vos confrères, sur des créneaux qui vous sont réservez et vice versa.</li>
+          <li> Accédez aux disponibilités de vos confrères sur des créneaux qui vous sont réservés et vice versa.</li>
           <li>Vous pouvez joindre un document et un message électronique pour que votre confrère ait toutes les informations nécessaires.</li>
           <li>Votre patient reçoit la confirmation et les rappels comme s’il avait pris rendez-vous lui-même sur KENEYA.</li>
         </ul>
@@ -160,6 +156,7 @@ include_once 'views/header.php'
 <hr class="mt-1 mb-0 ">
 </div>
 <!--/.Accordion wrapper-->
+
 </section>
     <section class="section-container-fluid talk-about-us mt-5">
   <h2 class="title-section text-center text-primary"><strong> Ils parlent de KENEYA</strong></h2>

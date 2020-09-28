@@ -54,13 +54,13 @@
           <a href="#!">Comment ça marche</a>
         </p>
         <p>
-          <a href="cookies.php">Politique d'utilisation des cookies</a>
+          <a href="../views/cookies.php">Politique d'utilisation des cookies</a>
         </p>
         <p>
-          <a href="Données personnelles.php">Données personnelles</a>
+          <a href="../views/Données personnelles.php">Données personnelles</a>
         </p>
         <p>
-          <a href="cgu.php">Mentions légales et CGU</a>
+          <a href="../views/cgu.php">Mentions légales et CGU</a>
         </p>
       </div>
       <!-- Grid column -->
@@ -75,7 +75,7 @@
           <a href="#!">Modifier un rendez-vous</a>
         </p>
         <p>
-          <a href="#!">Se desinscrire</a>
+          <a href="#!">Se désinscrire</a>
         </p>
         <p>
           <a href="#!">mode de paiement</a>
@@ -105,12 +105,12 @@
         <h3 class="mb-1  black-text h6 bold">Inscription gratuite</h3>
       </li>
       <li class="list-inline-item">
-        <a href="../views/form.php" class="btn btn-primary btn-rounded">Inscrivez vous!</a>
+        <a href="../views/register.php" class="btn btn-primary btn-rounded">Inscrivez vous!</a>
       </li> 
     </ul>     
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© <?= date('Y') ?> Copyright:
-    <a href="https://KENEYA.com/">KENEYA.com</a>
+    <a href="http://td/index.php">KENEYA.mli</a>
   </div>
   <!-- Copyright -->
    </footer>
@@ -118,7 +118,7 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-     <!-- <script src="../assets/script/script.js"></script>-->
+    <script src="../assets/js/script.js"></script>
     </body>
 </html>
  

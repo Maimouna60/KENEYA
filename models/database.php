@@ -1,12 +1,14 @@
 <?php
-class dataBase
+// include '../config.php';
+//connecter ma base de données au objet et de les faire communiquer
+class database
 {
     public $db = null;
     private static $instance = null;
     public function __construct()
     {
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=keneya;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->db = new PDO('mysql:host=localhost;dbname=keneya;charset=utf8','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         } catch (Exception $error) {
             die($error->getMessage());
         }

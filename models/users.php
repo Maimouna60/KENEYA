@@ -141,7 +141,7 @@ class users {
     public function getUserProfile()
     {
         $getUserProfile = $this->db->prepare(
-            'SELECT `id`, `mail`
+            'SELECT `id`, `mail`, `id_dom20_roles` AS `role`
             FROM  `dom20_users`
             WHERE `mail` = :mail'
         );
@@ -236,7 +236,9 @@ class users {
        $usersDocDetails->bindValue(':id', $this->id, PDO::PARAM_INT);
        $usersDocDetails->execute();
        return $usersDocDetails->fetch(PDO::FETCH_OBJ);    
-    }   
+    } 
+    
+    
 
 /**********************************************************************************Modification du profil patient***********************************************/
 public function modifyUsers() {
@@ -258,6 +260,9 @@ public function modifyUsers() {
         $modifyUsersQuery->bindValue(':id', $this->id, PDO::PARAM_STR);
             return $modifyUsersQuery->execute();  
     }
+
+
+
 /************************************************************************************Modification du profil docteur***********************************************************/
 public function modifyUsersDoctor() {
         $modifyUsersQuery = $this->db->prepare(
@@ -288,29 +293,4 @@ public function modifyUsersDoctor() {
             $deleteUserByIdQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
             return $deleteUserByIdQuery->execute();
     }
-
-    
-    function getPatientList() {
-        $getPatientList = $this->db->query(
-            //reformate la date sur le format francais
-            'SELECT 
-                `us`.`lastname`
-                ,`us`.`firstname`
-                ,DATE_FORMAT(`pat`.`birthDate`, \'%d/%m/%Y\') AS `birthDateFr` 
-                ,`pat`.`birthDate`
-                ,`pat`.`phoneNumbers`
-                ,`us`.`mail`
-            FROM 
-                `dom20_users`  as `us`
-            INNER JOIN  
-                    `dom20_patients` AS  `pat`
-            ON `us`.`id` = `pat`.`id_dom20_users`
-            WHERE
-                `us`.`id` = :id        
-            ORDER BY `lastname` ASC
-        ');
-        // fetchAll permet de recuperer un tableau d'objet
-        return $getPatientList->fetchAll(PDO::FETCH_OBJ);
-}
-
 }

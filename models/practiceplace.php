@@ -1,12 +1,12 @@
 <?php 
 
-class practiceplace{
+class practiceplace {
     public $id = 0;
     public $placename = '';
     public $db = NULL;
     public function __construct()
     {
-        $this->db = dataBase::getInstance();
+        $this->db = database::getInstance();
     }
 
     public function getPracticesPlaceName(){

@@ -30,7 +30,7 @@ include_once 'header.php';?>
 							</div>
 
 								<div class="card-body">
-									<p>KENEYA est une start up qui as pour but de mettre en relation les patients et les médecins.</p>
+									<p>KENEYA est une start up qui a pour but de mettre en relation les patients et les médecins.</p>
 									<p>Pour cela nous avons mis en place plateforme qui permet aux patients de prendre rendez-vous en ligne auprès des médecins inscrits sur la plateforme. 
                   					<p>Grâce à nous les patients pourront ainsi voir le profil des médecins, leur créneau de consultation, leurs parcours et expériences professionnelles. </p>
 									<p>Keneya permet également aux médecins de gérer les rendez-vous ainsi que leurs agendas.</p>
@@ -51,37 +51,21 @@ include_once 'header.php';?>
 			<div id="collapseOne_payment" class="collapse show" role="tabpanel" data-parent="#payment">
 
 				<div class="card-body ml-3 mr-3">
-					<p>KENEYA est composé d'une équipe de 3 personnes :</p>							
+					<p>KENEYA est composé d'une équipe de 3 personnes  dont la presidente est :</p>							
 
 				<div class="container mt-3">
-				<div class="row">
-					<div class="mt-3 col-md-4 d-flex align-items-stretch">
+				<div class="row  d-flex justify-content-center">
+					<div class="mt-3 col-md-4">
 						<div class="card">
 						<img class="card-img-top" src="../assets/img/PROFIL.jpg" id="img" alt="moi">
 						<div class="card-body">
 							<h3 class="card-title"><a>Maimouna KANTE</a></h3>              
-							<p class="card-text" style="font-style: italic">Directrice de la Stratégie, de l’Innovation et des Systèmes d’Information<p>
-						</div>
-						</div>
-					</div>   
-					<!--<div class="mt-3 col-md-4 d-flex align-items-stretch">
-					<div class="card">
-						<img class="card-img-top" src="../assets/img/rdvhomme.jpg" id="img" alt="rdvman">
-						<div class="card-body">
-							<h3 class="card-title"><a>Ousmane KANTE</a></h3>              
-							<p class="card-text" style="font-style: italic;">Directeur Générale</p>
+							<p class="card-text" style="font-style: italic">Présidente Directrice Général <p>
 						</div>
 					</div>
 				</div>   
-				<div class="mt-3 col-md-4 d-flex align-items-stretch">
-					<div class="card">
-					<img class="card-img-top" src="../assets/img/nah.jpg" id="img" alt="daraitou">
-					<div class="card-body">
-						<h3 class="card-title">Diariatou KANTE</a><a></h3>              
-						<p class="card-text" style="font-style: italic;">Directeur des Ressources Humaines et Commerciale </p>-->
-					</div>
-				</div>
-			</div>   
+				</div>   
+			  
 		</div>
 	</div> 
 	<div role="tablist" class="add_bottom_45 accordion" id="about-us">
@@ -114,12 +98,6 @@ include_once 'header.php';?>
 								<p>A KENEYA, nous faisons de notre mieux pour que la plateforme soit la plus conviviale possible pour nos utilisateurs, et ainsi faciliter la prise de rendez-vous 24h/7.</p>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 				</div>
 				<!-- /col -->
 			</div>

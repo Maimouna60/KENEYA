@@ -26,18 +26,19 @@ if(isset($_POST['loginOnly'])){
        if(password_verify($_POST['password'], $hash)){
            //On récupère son profil
             $getUserProfile = $user->getUserProfile();
-
+            var_dump($getUserProfile);
             //On met en session ses informations
             $_SESSION['profile']['id'] = $getUserProfile->id;
             $_SESSION['profile']['mail'] = $getUserProfile->mail;
-
+            $_SESSION['profile']['role'] = $getUserProfile->role;
+            
             $doctor = new doctor();
             $doctor->id_dom20_users = $getUserProfile->id;
             if($doctor->checkUserUnavailabilityByFieldName('id_dom20_users')){
                 $_SESSION['profile']['doctorId'] = 22;
                 //On redirige vers une autre page.
-                header('Location: profil-praticien.php');
-                exit;
+                //header('Location: profil-praticien.php');
+                //exit;
             }
 
             $patient = new patients();
@@ -45,8 +46,8 @@ if(isset($_POST['loginOnly'])){
             if($patient->checkUserUnavailabilityByFieldName('id_dom20_users')){
                 $_SESSION['profile']['patientId'] = 22;
                        //On redirige vers une autre page.
-                       header('Location: profil-patient.php');
-                       exit;
+                       //header('Location: profil-patient.php');
+                       //exit;
             }
         
 

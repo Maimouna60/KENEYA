@@ -1,24 +1,32 @@
 <?php
-    class appointement{
+    class appointment{
         //public est accessible dans la classe, ses enfant et ses instances
         //on declare les variable avec des contenue neutre
         public $id = 0;
         public $dateHour = '0000-00-00 00:00:00';
         public $idPatient = 0;
+        public $idDoctor = 0;
         private $db = NULL;
         public function __construct() {
             $this->db = dataBase::getInstance();
         }
         //une fonction dans une classe est une methode
+        public function addAppointment(){
+            $addAppointmentQuery = $this->db->prepare(
+                'INSERT INTO `appointments`(`idDoctors`, `dateHour`)
+                VALUES (:idDoctors, :dateHour)'
+            );
+            $addAppointmentQuery->bindValue(':idPatients', $this->idPatients, PDO::PARAM_STR);
+            $addAppointmentQuery->bindValue(':dateHour', $this->dateHour, PDO::PARAM_STR);
+            return $addAppointmentQuery->execute();
+        }
         public function addAppointement() {
             $addAppointement = $this->db->prepare(
                 'INSERT INTO 
-                    `appointments` (`dateHour`, `idPatients`) 
-                VALUES 
-                    (
+                    `dom20_appointments` (`dateHour`, `idDoctor`) 
+                VALUES (
                     :AppointementDateTime
-                    ,:patientId
-                    )
+                    ,:doctorId )
                 ');
                 // :lastname est un marqueur nominatif
             $addAppointement->bindValue(':AppointementDateTime', $this->dateHour, PDO::PARAM_STR);
@@ -62,8 +70,8 @@
                     ,`pat`.`phone`
                     , `pat`.`mail`
                 FROM 
-                    `appointments` AS `app`
-                    INNER JOIN `patients` AS `pat`
+                    `dom20_appointments` AS `app`
+                    INNER JOIN `dom20_patients` AS `pat`
                     ON `app`.`idPatients` = `pat`.`id`
                 WHERE
                     `app`.`id` = :appointementId
@@ -76,7 +84,7 @@
             //update la table patient
             $modifyAppointement = $this->db->prepare(
                 'UPDATE 
-                    `appointments` 
+                    `dom20_appointments` 
                 SET 
                     `dateHour`= :dateHour
                     ,`idPatients`= :idPatients
@@ -95,7 +103,7 @@
                     ,DATE_FORMAT(`dateHour`, \'%H:%i \') AS `timeFR` 
                     ,DATE_FORMAT(`dateHour`, \'%d/%m/%Y\') AS `dateFR`
                 FROM 
-                    `appointments`
+                    `dom20_appointments`
                 WHERE
                     `idPatients` = :patientID
                 ');
@@ -103,10 +111,11 @@
                 $getAppointementList->execute();
                 return $getAppointementList->fetchAll(PDO::FETCH_OBJ);
         }
+
         public function deleteAppointementById() {
             $deleteAppointement = $this->db->prepare(
                 'DELETE FROM 
-                    `appointments`
+                    `dom20_appointments`
                 WHERE 
                     id = :appointementID
                 ');
@@ -116,7 +125,7 @@
         public function deleteAppointementByUserId() {
             $deleteAppointement = $this->db->prepare(
                 'DELETE FROM 
-                    `appointments`
+                    `dom20_appointments`
                 WHERE 
                     idPatients = :appointementID
                 ');

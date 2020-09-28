@@ -41,14 +41,14 @@ include_once 'header.php';
                         <th scope="col">Heure du RDV :</th>
                     </tr>
                 </thead>
-               <tbody><?php 
+               <!-- <tbody><?php 
                     foreach($appointmentList as $appointment){ ?>
                     <tr>
                         <td><?= $appointment->doctor ?></td>
                         <td><?= $appointment->dateFr ?></td>
                         <td><?= $appointment->hour ?></td>
                     </tr><?php
-                    } ?>
+                    } ?> -->
                 </tbody>
             </table>
         </div>   
@@ -65,9 +65,10 @@ include_once 'header.php';
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-footer">
-                                    <form action="profil-patient?id=<?=$_SESSION['id']?>" method="POST">
-                                        <button type="submit" class="btn btn-danger" id="delPatientBtn" name="deleteProfilPatient">Supprimer</button>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <form action="profil-patient?id=<?=$_SESSION['profile']['id']?>" method="POST">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn btn-danger" id="delPatientBtn" name="deleteProfilPatient">Supprimer</button>                                      
                                     </form>
                                 </div>
                             </div>
